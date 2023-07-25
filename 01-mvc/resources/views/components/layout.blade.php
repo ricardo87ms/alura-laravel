@@ -10,9 +10,13 @@
 
 <body>
 
-    <h1>{{ $title }}</h1>
+    <div class="container">
 
-    {{ $slot }}
+        <h1>{{ $title }}</h1>
+
+        {{ $slot }}
+
+    </div>
 
 </body>
 
