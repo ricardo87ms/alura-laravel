@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 
 class SeriesController extends Controller
 {
-    function index(Request $request)
+    function index()
     {
-        $series = Serie::get();
+        $series = Serie::orderBy('nome')->get();
 
         return view('series.index')->with('series', $series);
     }
@@ -21,12 +21,8 @@ class SeriesController extends Controller
 
     function store(Request $request)
     {
-        $nomeSerie = $request->nome;
+        Serie::create($request->all());
 
-        $serie = new Serie();
-        $serie->nome = $nomeSerie;
-        $serie->save();
-
-        return redirect('series');
+        return to_route('series.index');
     }
 }
