@@ -24,4 +24,6 @@ Route::get('/', function () {
 //     Route::post('series/salvar', 'store');
 // });
 
-Route::resource('series', SeriesController::class);
+Route::resource('series', SeriesController::class)->except(['show']);
+
+// Route::delete('series/{serie}', [SeriesController::class, 'destroy'])->name('series.destroy');
